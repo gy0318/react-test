@@ -9,7 +9,7 @@ export default class TodoList extends Component{
                 {name:'睡觉',state:'todo-will'},
                 {name:'打豆豆',state:'todo-will'}
             ],
-            value:'addTodo'
+            value:''
         }
     }
     changeValue(){
@@ -25,6 +25,15 @@ export default class TodoList extends Component{
             TodoList
         });
     }
+    finishTodo(todoIndex){
+        let {TodoList} = this.state;
+        TodoList.filter((item,index) => {
+            return item.state = (index === todoIndex) ?  "todo-done" :  item.state
+        });
+        this.setState({
+            TodoList
+        });
+    }
     addTodo(){
         let TodoList = this.state.TodoList,
             item = {
@@ -34,7 +43,7 @@ export default class TodoList extends Component{
         TodoList.unshift(item);
         this.setState({
             TodoList,
-            value:'addTodo'
+            value:''
         })
     }
     render(){
@@ -43,8 +52,9 @@ export default class TodoList extends Component{
                 <ul>
                     {this.state.TodoList.map((item,index) => {
                         return (
-                            <li className={`todo-text ${item.state}`} key={index}>
-                                <span>{item.name}</span>
+                            <li  className="todo-text" key={index}>
+                            {/* todo-done | todo-will */}
+                                <span className={`${item.state}`} onClick={this.finishTodo.bind(this,index)}>{item.name}</span>
                                 <button  className="delete" onClick={this.deleteTodo.bind(this,index)}>删除</button>
                             </li>
                         )
