@@ -7,3 +7,12 @@
 .todo-done{
     text-decoration: line-through;
 }
+/* .todo-text{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.todo-done{
+    text-decoration: line-through;
+} */
