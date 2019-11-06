@@ -7,7 +7,8 @@ export default class TodoList extends Component{
             TodoList:[
                 {name:'吃饭',state:'todo-will'},
                 {name:'睡觉',state:'todo-will'},
-                {name:'打豆豆',state:'todo-will'}
+                {name:'打豆豆',state:'todo-will'},
+                {name:'吃玉米',state:'todo-will'}
             ],
             value:''
         }
